@@ -11,3 +11,12 @@ class AnalysisTask:
 
   def complete_analysis(self):
     self.status = "COMPLETE"
+
+  def get_state(self):
+    # Returns a JSON representation of current state
+    return {
+      "photo_id": self.photo_slot,
+      "camera_id": self.camera_id,
+      "status": self.status,
+      "time_remaining": self.time_remaining,
+    }

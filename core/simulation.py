@@ -1,9 +1,9 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
-from analysis_task import AnalysisTask
-from camera import Camera, PhotoCarousel
+from core.analysis_task import AnalysisTask
+from core.camera import Camera, PhotoCarousel
 
-class Simulation:
+class AnalysisManager:
   # Initializes the measurement with a provided mapping of each photo slot
   # and the desired camera(s) to analyze each slot
   def __init__(self):   
@@ -68,3 +68,14 @@ class Simulation:
 
     print('Analysis complete!')
     self.analysis_in_progress = False
+
+  def get_state(self):
+    return {
+      'analysis_in_progress': self.analysis_in_progress,
+      'camera_states': { id: camera.get_state() for (id, camera) in self.cameras.items()},
+      'analysis_tasks': [task.get_state() for (_, task) in self.analysis_tasks.items()]
+    }
+
+
+# Instantiate a global variable that we'll use for reference in the API
+global_analysis_manager = AnalysisManager()

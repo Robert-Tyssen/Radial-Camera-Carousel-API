@@ -1,4 +1,7 @@
-from simulation import Simulation
+from concurrent.futures import ThreadPoolExecutor
+from threading import Thread
+import time
+from core.simulation import global_analysis_manager
 
 mapping = {
   0: [1, 2, 3],
@@ -7,5 +10,14 @@ mapping = {
   14:[7],
 }
 
-ctrl = Simulation()
-ctrl.analyze(mapping)
+#global_analysis_manager.analyze(mapping)
+thread = Thread(target = global_analysis_manager.analyze, args = (mapping, ))
+thread.start()
+
+
+time.sleep(5)
+while global_analysis_manager.analysis_in_progress == True:
+  print(global_analysis_manager.get_state())
+  time.sleep(5)
+
+thread.join()

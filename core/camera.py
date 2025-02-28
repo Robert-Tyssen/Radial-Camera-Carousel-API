@@ -1,6 +1,6 @@
 import threading
 import time
-from analysis_task import AnalysisTask
+from core.analysis_task import AnalysisTask
 
 class PhotoCarousel:
   # Class representing a rotating photo carousel containing 16 slots
@@ -49,7 +49,7 @@ class Camera:
       
       self.status = "BUSY"
       task.start_analysis()
-      task.time_remaining = 5
+      task.time_remaining = 60
 
       while task.time_remaining > 0:
         time.sleep(1)
@@ -59,3 +59,9 @@ class Camera:
       task.complete_analysis()
 
       print(f'Finished analysis for Photo {task.photo_slot} - Camera {task.camera_id}')
+
+  def get_state(self):
+    # Returns a simple JSON representation of current state
+    return {
+      "status": self.status,
+    }
