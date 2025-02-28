@@ -1,4 +1,5 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
 import time
 from core.analysis_task import AnalysisTask
 from core.camera import Camera, PhotoCarousel
@@ -20,6 +21,9 @@ class AnalysisManager:
 
     # Current analysis tasks
     self.analysis_tasks: dict[tuple[int, int], AnalysisTask] = {}
+
+    # Lock for preventing race conditions in API calls
+    self.lock = threading.Lock()
 
 
   def analyze(self, photo_camera_mapping: dict[int, list[int]]):

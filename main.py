@@ -1,7 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor
 from threading import Thread
 import time
-from core.simulation import global_analysis_manager
+from core.analysis_manager import global_analysis_manager
 
 mapping = {
   0: [1, 2, 3],
