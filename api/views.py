@@ -18,7 +18,7 @@ def analysis_state(request):
   return Response(analysis_state)
 
 # Submits a demonstration analysis request
-@api_view(['GET'])
+@api_view(['POST'])
 def demo_analysis(request):
   mapping = {0: [1, 2, 3], 1: [2, 5], 2: [1, 4], 14:[7]}
   with global_analysis_manager.lock:
