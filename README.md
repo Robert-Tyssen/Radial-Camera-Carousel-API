@@ -23,7 +23,7 @@ cd Radial-Camera-Carousel-API
 
 2. **Create a virtual environment (optional but recommended)**
 ```bash
-python -m venv venv
+py -m venv .venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 ```
 
@@ -49,12 +49,12 @@ If testing from a front-end running on a different address (e.g. cloud-deploymen
 
 7. **Apply migrations**
 ```bash
-python manage.py migrate
+py manage.py migrate
 ```
 
 6. **Run the development server**
    ```bash
-   python manage.py runserver
+   py manage.py runserver
    ```
    Access the app at `http://127.0.0.1:8000/`.
    
