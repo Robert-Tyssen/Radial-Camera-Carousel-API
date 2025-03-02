@@ -12,6 +12,12 @@ Users can submit a request containing the desired photo slots to be analyzed, an
 - Django Rest Framework (DRF)
 - Django CORS Headers
 
+## Pre-Requisites
+Ensure you have the following installed:
+- Python (version 3.13.2 recommended)
+- pip (Python package manager)
+- virtualenv (optional but recommended)
+
 ## Setup Instructions
 
 1. **Clone the repository**
