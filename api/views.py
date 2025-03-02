@@ -47,7 +47,7 @@ def submit_analysis(request):
         thread.start()
         return Response({"message": "Submitted"})
       else:
-        return Response({"error": "Cannot submit, analysis already in progress"}, status=status.HTTP_403_FORBIDDEN)
+        return Response({"error": "analysis-in-progress"}, status=status.HTTP_403_FORBIDDEN)
   
   # Request was invalid - return an error
   return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
