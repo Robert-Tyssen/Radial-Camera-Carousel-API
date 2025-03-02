@@ -27,7 +27,7 @@ def demo_analysis(request):
       thread.start()
       return Response({"message": "Analysis submitted"})
     else:
-      return Response({"error": "Cannot submit, analysis already in progress"})
+      return Response({"error": "analysis-in-progress"}, status=status.HTTP_403_FORBIDDEN)
     
 # Submits an analysis with the provided request
 @api_view(['POST'])
