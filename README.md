@@ -30,7 +30,7 @@ cd Radial-Camera-Carousel-API
 2. **Create a virtual environment (optional but recommended)**
 ```bash
 py -m venv .venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+source venv/bin/activate  # On Windows use `.venv\Scripts\activate`
 ```
 
 3. **Install dependencies**
