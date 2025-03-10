@@ -6,14 +6,16 @@ class AnalysisTask:
     self.status = "NOT COMPLETE"
     self.time_remaining = 0
 
+  # Start the analysis by updating status to IN PROGRESS
   def start_analysis(self):
     self.status = "IN PROGRESS"
 
+  # Complete the analysis by updating status to COMPLETE
   def complete_analysis(self):
     self.status = "COMPLETE"
 
+  # Returns a JSON representation of current state
   def get_state(self):
-    # Returns a JSON representation of current state
     return {
       "photo_id": self.photo_slot,
       "camera_id": self.camera_id,
